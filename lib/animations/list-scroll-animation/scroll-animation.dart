@@ -39,7 +39,7 @@ import 'package:flutter/material.dart';
        slivers: [
         const SliverAppBar(
          automaticallyImplyLeading: false,
-         title: Text('My Characters', style: TextStyle(color: Colors.black)),
+         title: Text('My Cards', style: TextStyle(color: Colors.black)),
          pinned: true,
          backgroundColor: Colors.transparent,
          elevation: 0,
@@ -101,6 +101,11 @@ import 'package:flutter/material.dart';
           )
          ),
        
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 250,
+          ),
+        ),
        ],
       ),
     ),
