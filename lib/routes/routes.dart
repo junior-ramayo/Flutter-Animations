@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:retos_animaciones/animations/NavBar-Expanded/navbar.dart';
 import 'package:retos_animaciones/animations/animatedWidgets/home_animated.dart';
 import 'package:retos_animaciones/animations/composition/home_composition.dart';
 import 'package:retos_animaciones/animations/list-scroll-animation/scroll-animation.dart';
@@ -12,6 +13,7 @@ import 'package:retos_animaciones/home/home_page.dart';
     'home_composition': (BuildContext context) => HomeComposition(),
     'home_animated': (BuildContext context) => HomeAnimated(),
     'home_scroll': (BuildContext context) => ListScrollAnimation(),
+    'home_navbar': (BuildContext context) => NavBarExpanded(),
    };
   }
  }
