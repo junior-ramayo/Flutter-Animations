@@ -42,9 +42,21 @@ import 'package:flutter/widgets.dart';
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+
+       Container(
+        margin: const EdgeInsets.only(top: 50, left: 15, bottom: 15),
+        child: const Text(
+         'Contacts',
+         style: TextStyle(
+          fontSize: 47,
+          fontWeight: FontWeight.w900,
+          color: Colors.black,
+          letterSpacing: 1.5
+         ),
+        ),
+       ),
     
        Container(
-        margin: const EdgeInsets.only(top: 35),
         child: _columnWidget(
          animationController: animationController
         )
@@ -75,19 +87,6 @@ class _columnWidget extends AnimatedWidget {
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
 
-       Container(
-         margin: const EdgeInsets.only(top: 15, bottom: 15, left: 20),
-         child: const Text(
-          'Contacts',
-          style: TextStyle(
-            fontSize: 47,
-            fontWeight: FontWeight.w900,
-            color: Colors.black,
-            letterSpacing: 1.5
-          ),
-         ),
-       ),
-    
       _card('assets/avatar-1.png', 'Junior', 'Developer', '116', [Colors.orange, Colors.pinkAccent]),
       _card('assets/avatar-2.jpg', 'Domenica', 'Designer', '7', [Colors.green,Colors.blue[300]!]),
       _card('assets/avatar-2.jpg', 'Vanessa', 'nutritionist', '13', [Colors.purple[100]!, Colors.pinkAccent]),
