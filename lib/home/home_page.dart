@@ -26,6 +26,8 @@ class _HomePageState extends State<HomePage> {
        _card('home_scroll', 'List Scroll'),
 
        _card('home_navbar', 'NavBar Expanded'),
+
+       _card('home_listPage', 'Template gallery')
       
       ],
      ),
