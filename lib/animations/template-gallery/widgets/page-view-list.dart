@@ -1,8 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:retos_animaciones/animations/template-gallery/models/contact.dart';
-import 'package:retos_animaciones/animations/template-gallery/widgets/card.dart';
 
 
 class PerspectiveList extends StatefulWidget {

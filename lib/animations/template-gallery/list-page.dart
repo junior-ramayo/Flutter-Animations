@@ -4,7 +4,7 @@ import 'package:retos_animaciones/animations/template-gallery/widgets/card.dart'
 import 'package:retos_animaciones/animations/template-gallery/widgets/page-view-list.dart';
 
  class ContactListPage extends StatefulWidget {
-   ContactListPage({Key? key}) : super(key: key);
+   const ContactListPage({Key? key}) : super(key: key);
  
    @override
    State<ContactListPage> createState() => _ContactListPageState();

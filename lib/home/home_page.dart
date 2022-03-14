@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
  class HomePage extends StatefulWidget {
@@ -20,6 +19,8 @@ class _HomePageState extends State<HomePage> {
       children: [
       
        _card('home_animated', 'Animated'),
+
+       _card('home_tabs', 'Tabs synchronization'),
 
        _card('home_scroll', 'List Scroll'),
 

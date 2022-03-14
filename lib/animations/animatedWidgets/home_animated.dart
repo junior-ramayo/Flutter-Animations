@@ -1,15 +1,10 @@
-import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:retos_animaciones/animations/animatedWidgets/widgets/column-widget.dart';
 
 
  class HomeAnimated extends StatefulWidget {
   
-  HomeAnimated({Key? key}) : super(key: key);
+  const HomeAnimated({Key? key}) : super(key: key);
  
   @override
   State<HomeAnimated> createState() => _HomeAnimatedState();

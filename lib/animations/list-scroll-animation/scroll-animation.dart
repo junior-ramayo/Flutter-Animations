@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 
  class ListScrollAnimation extends StatefulWidget {
-   ListScrollAnimation({Key? key}) : super(key: key);
+   
+   const ListScrollAnimation({Key? key}) : super(key: key);
  
    @override
    State<ListScrollAnimation> createState() => _ListScrollAnimationState();

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 
  class NavBarExpanded extends StatefulWidget {
-   NavBarExpanded({Key? key}) : super(key: key);
+   const NavBarExpanded({Key? key}) : super(key: key);
  
    @override
    State<NavBarExpanded> createState() => _NavBarExpandedState();

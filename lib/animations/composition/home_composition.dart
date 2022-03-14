@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
  class HomeComposition extends StatefulWidget {
-   HomeComposition({Key? key}) : super(key: key);
+   const HomeComposition({Key? key}) : super(key: key);
  
    @override
    State<HomeComposition> createState() => _HomeCompositionState();
@@ -78,7 +78,7 @@ import 'package:flutter/material.dart';
    Widget build(BuildContext context) {
     return LayoutBuilder(
      builder: (context, constraints){
-      print(constraints.maxWidth); //meda el ancho de la pantalla del dispositivo.
+      // print(constraints.maxWidth); //meda el ancho de la pantalla del dispositivo.
       return Container(
        height: 10,
        alignment: Alignment.centerLeft,
