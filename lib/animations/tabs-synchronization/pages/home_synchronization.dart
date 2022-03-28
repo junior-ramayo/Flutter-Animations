@@ -115,6 +115,7 @@ import 'package:retos_animaciones/animations/tabs-synchronization/data/data.dart
   }
 
   
+  
 
  }
 
