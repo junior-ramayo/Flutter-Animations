@@ -18,8 +18,6 @@ class _HomePageState extends State<HomePage> {
      child: ListView(
       children: [
       
-       _card('home_animated', 'Animated'),
-
        _card('home_tabs', 'Tabs synchronization'),
 
        _card('home_scroll', 'List Scroll'),
@@ -27,8 +25,12 @@ class _HomePageState extends State<HomePage> {
        _card('home_navbar', 'NavBar Expanded'),
 
        _card('home_listPage', 'Template gallery'),
+
+       _card('home_animated', 'Animated'),
       
        _card('home_composition', 'Composition'),
+
+       _card('home_splash', 'Splash Screen'),
 
       ],
      ),
