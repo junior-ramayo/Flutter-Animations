@@ -6,6 +6,7 @@ import 'package:retos_animaciones/animations/list-scroll-animation/scroll-animat
 import 'package:retos_animaciones/animations/splash-screen/pages/home.dart';
 import 'package:retos_animaciones/animations/tabs-synchronization/pages/home_synchronization.dart';
 import 'package:retos_animaciones/animations/template-gallery/list-page.dart';
+import 'package:retos_animaciones/animations/travel-app/pages/home/home_travel.dart';
 import 'package:retos_animaciones/home/home_page.dart';
 
 
@@ -18,8 +19,9 @@ import 'package:retos_animaciones/home/home_page.dart';
     'home_scroll': (BuildContext context) => const ListScrollAnimation(),
     'home_navbar': (BuildContext context) => const NavBarExpanded(),
     'home_listPage': (BuildContext context) => const ContactListPage(),
-    'home_tabs': (BuildContext context) => TabsSynchronization(),
-    'home_splash': (BuildContext context) => SplashPage()
+    'home_tabs': (BuildContext context) => const TabsSynchronization(),
+    'home_splash': (BuildContext context) => const  SplashPage(),
+    'home_travel': (BuildContext context) => TravelHome()
    };
   }
  }
