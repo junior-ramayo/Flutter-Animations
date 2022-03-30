@@ -1,4 +1,4 @@
 ## Retos Animaciones
 
  ## 1.- Travel App
- <img src="assets/gifs/home.gif" height="800" />
+ <img src="assets/gifs/home.gif" height="500" />
