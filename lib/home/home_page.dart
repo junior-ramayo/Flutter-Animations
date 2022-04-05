@@ -17,14 +17,18 @@ class _HomePageState extends State<HomePage> {
      padding: const EdgeInsets.only(left: 15,right: 15, top: 25),
      child: ListView(
       children: [
+
+       _card('home_coffee', 'Coffee App'),
+
+       _card('home_travel', 'Travel App'),
       
        _card('home_tabs', 'Tabs synchronization'),
 
-       _card('home_travel', 'Travel App'),
-
        _card('home_navbar', 'NavBar Expanded'),
 
-       _card('home_listPage', 'Template gallery'),      
+       _card('home_listPage', 'Template gallery'), 
+
+            
 
       ],
      ),
