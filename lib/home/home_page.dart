@@ -21,13 +21,14 @@ class _HomePageState extends State<HomePage> {
        _card('home_coffee', 'Coffee App'),
 
        _card('home_travel', 'Travel App'),
+
+       _card('home_grocery', 'Grocery App'),
       
        _card('home_tabs', 'Tabs synchronization'),
 
        _card('home_navbar', 'NavBar Expanded'),
 
        _card('home_listPage', 'Template gallery'), 
-
             
 
       ],

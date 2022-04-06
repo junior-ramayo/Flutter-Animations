@@ -7,7 +7,7 @@ import 'package:retos_animaciones/animations/travel-app/pages/home/widgets/trave
 
 
  class TravelHome extends StatefulWidget {
-   TravelHome({Key? key}) : super(key: key);
+   const TravelHome({Key? key}) : super(key: key);
  
    @override
    State<TravelHome> createState() => _TravelHomeState();

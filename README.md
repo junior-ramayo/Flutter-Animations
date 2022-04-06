@@ -12,5 +12,8 @@
    <img src="assets/gifs/coffee_gif2.gif" height="500" />
  </div>
 
- ## 3.- Template Gallery
+ ## 3.- Grocery App
+   <img src="assets/gifs/grocery-app.gif"  height="500" />
+
+ ## 4.- Template Gallery
  <img src="assets/gifs/gallery.gif"  height="500" />
