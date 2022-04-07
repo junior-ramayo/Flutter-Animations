@@ -34,6 +34,10 @@ import 'package:retos_animaciones/animations/grocery-app/models/product/product.
 
   int totalCartElement() => cart.fold<int>(0, (previousValue, element) => previousValue + element.quantity);
 
+  double totalPriceElements() => cart.fold<double>(
+    0.0, 
+    (previousValue, element) => previousValue + (element.quantity * element.product.price)
+  );
 
  }
 

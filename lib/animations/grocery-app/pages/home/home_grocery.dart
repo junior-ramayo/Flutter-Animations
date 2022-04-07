@@ -57,7 +57,7 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
            left: 0,
            right: 0,
            top: getTopForBlackPanel(bloc.groceryState, size),
-           height: size.height,
+           height: size.height - kToolbarHeight,
            child: GestureDetector(
             onVerticalDragUpdate: _onVerticalGesture,
             child: Container(
@@ -66,49 +66,52 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
               children: [
                Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: Row(
-                 children: [
-                  const Text(
-                   'Cart',
-                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20
-                   )
-                  ),
-                  Expanded(
-                   child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: List.generate(
-                       bloc.cart.length, 
-                       (index){
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                          child: Hero(
-                            tag: 'list_${bloc.cart[index].product.name}details',
-                            child: CircleAvatar(
-                             backgroundColor: Colors.white,
-                             backgroundImage: AssetImage(
-                              bloc.cart[index].product.image
-                             ),
-                            ),
-                          ),
-                        );
-                       }
-                      ),
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 500),
+                  child: bloc.groceryState == GroceryState.normal ? Row(
+                   children: [
+                    const Text(
+                     'Cart',
+                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 20
+                     )
                     ),
-                   )
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.orange,
-                    child: Center(child: Text(bloc.totalCartElement().toString())),
-                  ),
-                 ],
+                    Expanded(
+                     child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(
+                         bloc.cart.length, 
+                         (index){
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                            child: Hero(
+                              tag: 'list_${bloc.cart[index].product.name}details',
+                              child: CircleAvatar(
+                               backgroundColor: Colors.white,
+                               backgroundImage: AssetImage(
+                                bloc.cart[index].product.image
+                               ),
+                              ),
+                            ),
+                          );
+                         }
+                        ),
+                      ),
+                     )
+                    ),
+                    CircleAvatar(
+                      backgroundColor: Colors.orange,
+                      child: Center(child: Text(bloc.totalCartElement().toString())),
+                    ),
+                   ],
+                  ) 
+                  : const SizedBox.shrink(),
                 ),
                ),
-                const Spacer(),
-                const Placeholder()
+               const Expanded(child: GroceryStoreCartList()),
               ],
              ),
             ),
@@ -197,8 +200,6 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
   }
  }
 
-
-
  class GroceryProvider extends InheritedWidget {
 
   final GroceryStoreBloc bloc;
@@ -212,8 +213,6 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
    
  }
-
-
  
  class StoggeredDualView extends StatelessWidget {
   
@@ -359,4 +358,130 @@ class _GroceryStoreHomeState extends State<GroceryStoreHome> {
       ),
     );
    }
+ }
+
+
+
+
+ class GroceryStoreCartList extends StatelessWidget {
+  
+  const GroceryStoreCartList({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+   final bloc = GroceryProvider.of(context)!.bloc;
+   return Padding(
+     padding: const EdgeInsets.all(15.0),
+     child: Column(
+      children: [
+        Expanded(
+         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           const Text(
+            'Cart',
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 35,
+             fontWeight: FontWeight.bold
+            ),
+           ),
+           Expanded(
+            child: ListView.builder(
+             itemCount: bloc.cart.length,
+             itemBuilder: (context, index){
+              final item = bloc.cart[index];
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
+                child: Row(
+                  children: [
+                   Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                     child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage(
+                       bloc.cart[index].product.image
+                      ),
+                     ),
+                   ),
+                   Text(
+                    '${item.quantity} x',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16
+                    ),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                     child: Text(
+                      bloc.cart[index].product.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20
+                      ),
+                     ),
+                   ),
+                   const Spacer(),
+                   Text(
+                     (item.product.price * item.quantity).toStringAsFixed(2),
+                     style: const TextStyle(
+                      color: Colors.white
+                    ),
+                   ),
+                  ],
+                ),
+              );
+             }
+            ),
+           ),
+          ],
+         ),
+        ),
+        Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: [
+          const Text(
+            'Total:',
+            style: TextStyle(
+             color: Colors.white,
+             fontWeight: FontWeight.bold,
+             fontSize: 25
+            ),
+          ),
+          Text(
+            '\$ ${bloc.totalPriceElements()}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.w600
+            ),
+          ),
+         ],
+        ),
+        GestureDetector(
+         onTap: () {},
+         child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 11),
+          decoration: BoxDecoration(
+           color: Colors.orange[400],
+           borderRadius: const BorderRadius.all(Radius.circular(20))
+          ),
+          child: const Center(
+           child: Text(
+            'Next',
+            style: TextStyle(
+             fontWeight: FontWeight.bold,
+             fontSize: 19
+            ),
+           )
+          ),
+         ),
+        ),
+
+      ],
+     ),
+   );
+  }
  }
